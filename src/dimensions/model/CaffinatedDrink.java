@@ -3,8 +3,15 @@ package dimensions.model;
 public class CaffinatedDrink
 {
 	private String name;
-	private double heatLevel;
+	private double caffineLevel;
 	private boolean isTasty;
+	
+	public CaffinatedDrink(String name, double caffineLevel, boolean isTasty)
+	{
+		this.name = name;
+		this.caffineLevel = caffineLevel;
+		this.isTasty = isTasty;
+	}
 	
 	public String getName()
 	{
@@ -12,7 +19,7 @@ public class CaffinatedDrink
 	}
 	public double getHeatLevel()
 	{
-		return heatLevel;
+		return caffineLevel;
 	}
 	public boolean isTasty()
 	{
@@ -22,9 +29,9 @@ public class CaffinatedDrink
 	{
 		this.name = name;
 	}
-	public void setHeatLevel(double heatLevel)
+	public void setHeatLevel(double caffineLevel)
 	{
-		this.heatLevel = heatLevel;
+		this.caffineLevel = caffineLevel;
 	}
 	public void setTasty(boolean isTasty)
 	{
@@ -36,8 +43,8 @@ public class CaffinatedDrink
 	{
 		String foodInfo = "";
 		
-		foodInfo += "Hi, I am a spicy food object :D. My name is " + name;
-		foodInfo += ". I have a heat level of: " + heatLevel;
+		foodInfo += "Hi, I am a caffinated object. My name is " + name;
+		foodInfo += ". I have a caffine level of: " + caffineLevel;
 		if(isTasty)
 		{
 			foodInfo += ". Vlad says I am tasty too :D.";
