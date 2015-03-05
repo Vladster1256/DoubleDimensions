@@ -1,6 +1,6 @@
 package dimensions.model;
 
-public class CaffinatedDrink
+public class CaffinatedDrink implements Comparable
 {
 	private String name;
 	private double caffineLevel;
@@ -17,7 +17,7 @@ public class CaffinatedDrink
 	{
 		return name;
 	}
-	public double getHeatLevel()
+	public double getCaffineLevel()
 	{
 		return caffineLevel;
 	}
@@ -29,7 +29,7 @@ public class CaffinatedDrink
 	{
 		this.name = name;
 	}
-	public void setHeatLevel(double caffineLevel)
+	public void setCaffineLevel(double caffineLevel)
 	{
 		this.caffineLevel = caffineLevel;
 	}
@@ -54,5 +54,23 @@ public class CaffinatedDrink
 			foodInfo +=". Everyone knows I taste yucky!";
 		}
 		return foodInfo;
+	}
+	
+	/**
+	 * 
+	 */
+	public int compareTo(Object comparedCaffine)
+	{
+		int compared = 0;
+		
+		if(this.caffineLevel < ((CaffinatedDrink)comparedCaffine).getCaffineLevel() || (!this.isTasty && ((CaffinatedDrink)comparedCaffine).isTasty()))
+		{
+			compared = -1;
+		}
+		else if(this.caffineLevel > ((CaffinatedDrink)comparedCaffine).getCaffineLevel()|| (this.isTasty && !((CaffinatedDrink)comparedCaffine).isTasty()))
+		{
+			compared = 1;
+		}
+		return compared;
 	}
 }
